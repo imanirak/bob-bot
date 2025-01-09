@@ -10,6 +10,7 @@ TOKEN = os.getenv('DISCORD_TOKEN')
 class Client(discord.Client):
     async def on_ready(self):
         print(f'{self.user} has connected to Discord yay!')
+        
     async def on_message(self,message):
         if message.author == self.user:
             return
