@@ -79,3 +79,4 @@ pip install -r requirements.txt
 * **Polls and Predictions** : Allow users to vote on game outcomes or create prediction challenges (`!nba predict <game>`).
 
 Let me know if you need help with implementation, and I can guide you through setting up these features! 🏀
+ 
