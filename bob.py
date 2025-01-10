@@ -42,6 +42,8 @@ GUILD_ID= discord.Object(id=GUILD)
 async def sayHello(interaction: discord.Interaction):
     await interaction.response.send_message("Hi there")
    
-
+@client.tree.command(name="copycat" , description= "i will copy whatever you say!", guild=GUILD_ID)
+async def sayHello(interaction: discord.Interaction, printer: str):
+    await interaction.response.send_message(printer)
 
 client.run(TOKEN) 
