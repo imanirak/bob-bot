@@ -5,8 +5,13 @@
 Create python env:
 
 ```
-python3 -m venv path/to/venv
-    source path/to/venv/bin/activate
+python3 -m venv venv
+```
+
+Activate VENV:
+
+```
+source path/to/venv/bin/activate
 ```
 
 Install dependencies:
@@ -15,6 +20,15 @@ Install dependencies:
 pip install -r requirements.txt
 ```
 
+
+
+If a new dependencies is added, update requirements:
+
+pip3 freeze > requirements.txt
+
+```
+pip3 freeze > requirements.txt
+```
 
 ##### HOW TO GIT:
 
@@ -27,7 +41,6 @@ pip install -r requirements.txt
 `git commit -m """ - add a message describing the changes`
 
 `git push - push changes to github repo for everyone`
-
 
 ## Bob features coming soon:
 
