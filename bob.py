@@ -5,7 +5,7 @@ import discord
 from dotenv import load_dotenv   
 from discord import app_commands 
 from discord.ext import commands 
-
+import aiohttp  
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
 GUILD = os.getenv('GUILD_ID')
@@ -46,4 +46,19 @@ async def sayHello(interaction: discord.Interaction):
 async def sayHello(interaction: discord.Interaction, printer: str):
     await interaction.response.send_message(printer)
 
-client.run(TOKEN) 
+client.run(TOKEN)  
+
+@bot.command() 
+async def gpt(ctx: commands.Context, *, prompt:str)
+    async with aiohttp.ClientSession() as session:
+        payload = {
+            "model": "text-curie-001"
+            "prompt" prompt,
+            "temperature": 0.5,
+            "max_tokens": 50,
+            "presence_penalty": 0,
+            "frequency_penalty": 0,
+            "best_of":1,
+        }
+headers = {"Authorization": f"Bearer{API_KEY}"}    
+async def with session.post("https://api.openai.com/v1/completions"), json=payload, headers=headers) as resp:
