@@ -6,6 +6,8 @@ from dotenv import load_dotenv
 from discord import Message 
 from discord.ext import commands 
 from bobvis import bobvis_reponse 
+from data import get_player_stats
+
 
 load_dotenv()
 
