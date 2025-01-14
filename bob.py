@@ -46,4 +46,17 @@ async def sayHello(interaction: discord.Interaction):
 async def sayHello(interaction: discord.Interaction, printer: str):
     await interaction.response.send_message(printer)
 
+@client.tree.command(name="stats" , description= "ask specific player stats", guild=GUILD_ID)
+async def NBAstats(interaction: discord.Interaction):
+    await interaction.response.send_message("coming soon")
+
+@client.tree.command(name="news" , description= "will share important nba updates", guild=GUILD_ID)
+async def NBANews(interaction: discord.Interaction):
+    await interaction.response.send_message("coming soon")
+
+@client.tree.command(name="trivia" , description= "fun facts about teams and players or league history", guild=GUILD_ID)
+async def NBATrivia(interaction: discord.Interaction):
+    await interaction.response.send_message("coming soon")
+
+
 client.run(TOKEN) 
