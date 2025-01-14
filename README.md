@@ -2,12 +2,12 @@
 
 ## Get Started
 
-Required: must have [docker](https://docs.docker.com/desktop/setup/install/mac-install/) installed in order to run discord bot with appropriate dependencies. 
+Required: must have [docker](https://docs.docker.com/desktop/setup/install/mac-install/) installed in order to run discord bot with appropriate dependencies.
 
 run:
 
 ```
-docker build -t discord-bot . && docker run --env-file .env -d --name discord-bot discord-bot
+docker build -t discord-bot . && docker run --env-file .env -it --name discord-bot discord-bot
 ```
 
 ##### HOW TO GIT:

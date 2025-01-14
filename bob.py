@@ -82,5 +82,4 @@ async def NBANews(interaction: discord.Interaction):
 async def NBATrivia(interaction: discord.Interaction):
     await interaction.response.send_message("coming soon")
 
-
 client.run(TOKEN) 
