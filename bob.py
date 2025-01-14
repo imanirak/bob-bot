@@ -5,6 +5,7 @@ import discord
 from dotenv import load_dotenv   
 from discord import app_commands 
 from discord.ext import commands 
+from data import get_player_stats
 
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
@@ -47,8 +48,31 @@ async def sayHello(interaction: discord.Interaction, printer: str):
     await interaction.response.send_message(printer)
 
 @client.tree.command(name="stats" , description= "ask specific player stats", guild=GUILD_ID)
-async def NBAstats(interaction: discord.Interaction):
-    await interaction.response.send_message("coming soon")
+async def NBAstats(interaction: discord.Interaction, player_name: str, season: str):
+    """
+    Slash command to fetch NBA player stats.
+    Example usage: /stats player_name: "Lebron James" season: 2022-23"
+    Args:
+        interaction (discord.Interaction): _description_
+        player_name (str): _description_
+        season (str): _description_
+    """
+    # bot is loading a response
+    await interaction.response.defer()
+
+    try: 
+        # grab specific player stats
+        stats = get_player_stats(player_name, season)
+        if isinstance(stats, str):
+            await interaction.followup.send(stats)
+        else:
+        # format data properly
+            formatted_stats = "\n".join(f"{key}:{value}" for key, value in stats.items())
+            await interaction.followup.send(f"Stats for {player_name} in {season}:\n{formatted_stats}")
+    except Exception as e:
+        # return error if unsuccessful
+        await interaction.followup.send(f"An error occurred: {str(e)}")
+        return
 
 @client.tree.command(name="news" , description= "will share important nba updates", guild=GUILD_ID)
 async def NBANews(interaction: discord.Interaction):

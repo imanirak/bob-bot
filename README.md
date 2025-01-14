@@ -10,6 +10,8 @@ python3 -m venv venv
 
 Activate VENV:
 
+PROMPT='%F{purple}%n@%m%f %F{blue}%~%f %# '
+
 ```
 source path/to/venv/bin/activate
 ```
@@ -19,8 +21,6 @@ Install dependencies:
 ```python
 pip install -r requirements.txt
 ```
-
-
 
 If a new dependencies is added, update requirements:
 
@@ -92,4 +92,3 @@ pip3 freeze > requirements.txt
 * **Polls and Predictions** : Allow users to vote on game outcomes or create prediction challenges (`!nba predict <game>`).
 
 Let me know if you need help with implementation, and I can guide you through setting up these features! 🏀
- 
