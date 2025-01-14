@@ -3,12 +3,16 @@ import os
 
 import discord 
 from dotenv import load_dotenv   
-from discord import app_commands 
+from discord import Message 
 from discord.ext import commands 
-import aiohttp  
+from bobvis import bobvis_reponse 
+
 load_dotenv()
+
 TOKEN = os.getenv('DISCORD_TOKEN')
 GUILD = os.getenv('GUILD_ID')
+KEY =os.getenv('KEY_API')
+
 
 class Client(commands.Bot):
     async def on_ready(self):
@@ -33,7 +37,7 @@ class Client(commands.Bot):
 
 intents = discord.Intents.default()
 intents.message_content = True
-client = Client(command_prefix="!", intents=intents)
+client = Client(command_prefix="!", intents=intents.all())
 
 GUILD_ID= discord.Object(id=GUILD)
 
@@ -42,23 +46,19 @@ GUILD_ID= discord.Object(id=GUILD)
 async def sayHello(interaction: discord.Interaction):
     await interaction.response.send_message("Hi there")
    
-@client.tree.command(name="copycat" , description= "i will copy whatever you say!", guild=GUILD_ID)
-async def sayHello(interaction: discord.Interaction, printer: str):
-    await interaction.response.send_message(printer)
+# @client.tree.command(name="copycat" , description= "i will copy whatever you say!", guild=GUILD_ID)
+# async def copy(interaction: discord.Interaction, printer: str):
+#     await interaction.response.send_message(printer)
 
-client.run(TOKEN)  
+#     for text in ['/bobvis , /bob']:
+#         if Message.content.startswith(text):
+#             command=Message.content.split(' ')[0]
+#             user_message=Message.content.replace(text, ' ') 
+#             print(command, user_message)
 
-@bot.command() 
-async def gpt(ctx: commands.Context, *, prompt:str)
-    async with aiohttp.ClientSession() as session:
-        payload = {
-            "model": "text-curie-001"
-            "prompt" prompt,
-            "temperature": 0.5,
-            "max_tokens": 50,
-            "presence_penalty": 0,
-            "frequency_penalty": 0,
-            "best_of":1,
-        }
-headers = {"Authorization": f"Bearer{API_KEY}"}    
-async def with session.post("https://api.openai.com/v1/completions"), json=payload, headers=headers) as resp:
+#         if command == '/bobvis' or command == '/bob':
+#             bot_reponse = bobvis_reponse(prompt=user_message)
+#             await Message.channel.send(f"Answer: {bot_reponse}") 
+            
+intents = discord.Intents.default()
+intents.message_content = True
