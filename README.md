@@ -2,32 +2,12 @@
 
 ## Get Started
 
-Create python env:
+Required: must have [docker](https://docs.docker.com/desktop/setup/install/mac-install/) installed in order to run discord bot with appropriate dependencies. 
+
+run:
 
 ```
-python3 -m venv venv
-```
-
-Activate VENV:
-
-PROMPT='%F{purple}%n@%m%f %F{blue}%~%f %# '
-
-```
-source path/to/venv/bin/activate
-```
-
-Install dependencies:
-
-```python
-pip install -r requirements.txt
-```
-
-If a new dependencies is added, update requirements:
-
-pip3 freeze > requirements.txt
-
-```
-pip3 freeze > requirements.txt
+docker build -t discord-bot . && docker run --env-file .env -d --name discord-bot discord-bot
 ```
 
 ##### HOW TO GIT:
